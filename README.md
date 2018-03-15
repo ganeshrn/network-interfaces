@@ -26,7 +26,7 @@ playbooks.
 * get_config [[source]](tasks/get_config.yml) [[docs]](docs/get_config.md)
 * get_config_diff [[source]](tasks/get_config_diff.yml) [[docs]](docs/get_config_diff.md)
 * edit_config [[source]](tasks/edit_config.yml) [[docs]](docs/edit_config.md)
-* edit_config [[source]](tasks/main.yml) [[docs]](docs/main.md)
+* main [[source]](tasks/main.yml) [[docs]](docs/main.md)
 
 ## Role Variables
 The following role variables are defined by this role.
