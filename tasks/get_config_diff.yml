@@ -1,0 +1,10 @@
+---
+- name: validate the ansible_network_os variable
+  fail:
+    msg: "missing required fact: ansible_network_os"
+  when: ansible_network_os is undefined
+
+- name: render the device configuration in native cli/xml format
+  import_role:
+    name: network-config
+    tasks_from: diff

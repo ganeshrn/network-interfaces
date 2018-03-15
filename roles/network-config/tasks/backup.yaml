@@ -1,0 +1,19 @@
+---
+- name: check connection is network_cli
+  fail:
+    msg: "backup is only supported when using connection=network_cli"
+  when: ansible_connection != 'network_cli'
+
+- name: get the current active configuration
+  include_tasks: get.yaml
+
+- name: check the backup path exists
+  file:
+    path: "{{ backup_path }}"
+    state: directory
+  delegate_to: localhost
+
+- name: write the active configuration to disk
+  copy:
+    content: "{{ running_configuration.config }}"
+    dest: "{{ backup_path }}/{{ backup_filename }}"

@@ -1,0 +1,34 @@
+---
+- name: validate the ansible_network_os variable
+  fail:
+    msg: "missing required fact: ansible_network_os"
+  when: ansible_network_os is undefined
+
+- name: validate the ansible_connection variable
+  fail:
+    msg: "missing required fact: ansible_connection"
+  when: ansible_connection is undefined
+
+- name: validate the yang_variant variable
+  fail:
+    msg: "missing required fact: yang_variant"
+  when: yang_variant is undefined
+
+- name: validate the source_dirs variable
+  fail:
+    msg: "missing required fact: source_dirs"
+  when: source_dirs is undefined
+
+- name: render the device configuration in native cli format
+  import_role:
+    name: network-config
+    tasks_from: template
+  when: ansible_connection == network_cli
+
+- name: render the device configuration in native xml format
+  import_role:
+    name: network-config
+    tasks_from: render_xml
+  vars:
+    configuration: input_configuration
+  when: ansible_connection == netconf

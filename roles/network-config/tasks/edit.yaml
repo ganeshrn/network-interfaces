@@ -1,0 +1,14 @@
+---
+- name: push cli config to device
+  edit_config:
+    source: "{{ source|default(running) }}"
+    config: "{{ configuration.text }}"
+  register: result
+  when: ansible_connection == "network_cli"
+
+- name: push xml config to device
+  edit_config:
+    source: "{{ source|default(running) }}"
+    config: "{{ configuration.xml }}"
+  register: result
+  when: ansible_connection == "network_cli"

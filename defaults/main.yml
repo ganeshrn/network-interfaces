@@ -1,0 +1,27 @@
+---
+# defaults file for network-interfaces
+
+# default location to find spec files
+module:
+  interfaces
+
+# default location to find configuration files
+config_file:
+  - "{{ playbook_dir }}/vars/config.yml"
+  - "/etc/ansible/network/vars/config.yml"
+
+# default location to find spec files
+spec_file:
+  - "{{ playbook_dir }}/files/spec/{{ yang_variant }}_{{ module }}.yml"
+  - "/etc/ansible/network/files/spec/{{ yang_variant }}_{{ module }}.yml"
+
+
+# default location to find configuration templates
+source_dirs:
+  - "{{ playbook_dir }}/templates/{{ yang_variant }}/{{ ansible_network_os }}/{{ ansible_connection }}"
+  - "/etc/ansible/network/templates/{{ yang_variant }}/{{ ansible_network_os }}/{{ ansible_connection}}"
+
+# default location to find xpath_map files
+xpath_map:
+  - "{{ playbook_dir }}/files/map/{{ yang_variant }}/{{ ansible_network_os }}.yml"
+  - "/etc/ansible/network/files/map/{{ yang_variant }}/{{ ansible_network_os }}.yml"

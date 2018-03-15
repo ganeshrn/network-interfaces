@@ -1,0 +1,4 @@
+---
+# vars file for network-interfaces
+
+include_vars: config.yml

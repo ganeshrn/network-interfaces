@@ -1,0 +1,6 @@
+---
+- name: fetch device configuration
+  import_role:
+    name: network-config
+    tasks_from: edit
+  register: result

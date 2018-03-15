@@ -1,0 +1,11 @@
+---
+xpath_map:
+  - /interfaces: "/interfaces"
+  - /interfaces/interface/config:  "/interfaces/interface"
+  - /interfaces/interface/config/description: "/interfaces/interface/description"
+  - /interfaces/interface/config/loopback_mode: "/interfaces/interface/loopback_mode"
+  - /interfaces/interface/config/mtu: "/interfaces/interface/mtu"
+  - /interfaces/interface/config/type: "/interfaces/interface/type"
+  - /interfaces/interface/subinterfaces/config: "/interfaces/interface/unit"
+  - /interfaces/interface/subinterfaces/config/index: "/interfaces/interface/unit/name"
+  - /interfaces/interface/subinterfaces/config/description: "/interfaces/interface/unit/description"

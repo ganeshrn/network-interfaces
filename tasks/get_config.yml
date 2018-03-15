@@ -1,0 +1,16 @@
+---
+- set_fact:
+    config_filter: "<interfaces><interface></interface></interfaces>"
+  when: (ansible_connection == netconf and ansible_network_os == junos)
+
+- set_fact:
+    config_filter: "section interfaces"
+  when: (ansible_connection == network_cli and ansible_network_os == ios)
+
+- name: fetch device configuration
+  import_role:
+    name: network-config
+    tasks_from: get
+  vars:
+    config_filter: "{{ config_filter }}"
+  register: running_configuration

@@ -1,0 +1,19 @@
+---
+interfaces:
+  - interface:
+      config:
+        name: None
+        description: None
+        enabled: True
+        loopback_mode: False
+        mtu: None
+        type: None
+      hold_time:
+        config:
+          up: 0
+          down: 0
+      subinterfaces:
+        - config:
+            index: 0
+            description: None
+            enabled: True

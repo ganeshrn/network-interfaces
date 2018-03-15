@@ -1,0 +1,58 @@
+---
+# tasks file for network-interfaces
+
+
+- name: check for required fact ansible_network_os
+  fail:
+    msg: "missing required fact: ansible_network_os"
+  when: ansible_network_os is undefined
+
+- name: validate the ansible_connection variable
+  fail:
+    msg: "missing required fact: ansible_connection"
+  when: ansible_connection is undefined
+
+- name: check for required fact ansible_network_os
+  fail:
+    msg: "missing required: input_configuration"
+  when: input_configuration is undefined
+
+- name: validate the candidate_configuration variable
+  fail:
+    msg: "missing required: candidate_configuration"
+  when: candidate_configuration is undefined
+
+- name: validate the running_configuration variable
+  fail:
+    msg: "missing required: running_configuration"
+  when: running_configuration is undefined
+
+- name: validate the configuration variable
+  fail:
+    msg: "missing required: configuration"
+  when: configuration is undefined
+
+- name: check for required fact spec_file
+  fail:
+    msg: "missing required fact: spec_file"
+  when: spec_file is undefined
+
+- name: check for required fact config_file
+  fail:
+    msg: "missing required fact: config_file"
+  when: config_file is undefined
+
+- name: run config validate task
+  include_tasks: validate_input.yaml
+
+- name: convert configuration to native cli commands or xml string
+  include_tasks: parser.yaml
+
+- name: retrive current active configuration
+  include_tasks: get_config.yaml
+
+- name: Generate diff between running and candidate config
+  include_tasks: get_config_diff.yaml
+
+- name: Push the diff config to remote device
+  include_tasks: edit_config.yaml

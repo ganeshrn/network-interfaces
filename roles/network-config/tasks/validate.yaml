@@ -1,0 +1,8 @@
+---
+# validate the input configuration in json/yaml format against the spec file
+# to ensure input config conforms with desired standard
+- name: validate input configuration
+  validate_config:
+    spec: "{{ spec_file }}"
+    config: "{{ lookup('file', {{ config_file }}) | to_json }}"
+  register: input_configuration

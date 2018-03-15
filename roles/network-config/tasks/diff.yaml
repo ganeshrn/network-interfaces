@@ -1,0 +1,17 @@
+---
+- name: get diff between running and candidate configuration in cli format
+  text_diff:
+    candidate: "{{ candidate_configuration.text }}"
+    running: "{{ running_configuration.config }}"
+    indent: "{{ indent|default(1) }}"
+    ignore_lines: "{{ ignore_lines|default(omit) }}"
+  register: configuration
+  when: ansible_connection == network_cli
+
+- name: get diff between running and candidate configuration in xml format
+  xml_diff:
+    candidate: "{{ candidate_config.xml }}"
+    running: "{{ running_config.config }}"
+    ignore_xpath: "{{ ignore_xpath|default(omit) }}"
+  register: configuration
+  when: ansible_connection == netconf

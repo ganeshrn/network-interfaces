@@ -1,0 +1,28 @@
+---
+- name: configure base interface parameters
+  context:
+    - name: set the interface context
+      lines_template:
+        template:
+          - "interface {{ item.key }}"
+      required: yes
+
+    - name: configure base interface parameters
+      lines_template:
+        template:
+          - "description {{ item.value.description }}"
+          - "{{ item.value.enabled | ternary('no shutdown', 'shutdown') }}"
+
+    - name: mtu
+      lines_template:
+        template:
+          - "mtu {{ item.value.mtu }}"
+
+  loop: "{{ interfaces }}"
+
+
+- name: ending comment line
+  lines_template:
+    template:
+      - "!"
+

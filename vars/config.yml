@@ -1,0 +1,37 @@
+---
+interfaces:
+  - interface:
+      config:
+        name: "ge-0/0/1"
+        description: "configure interface-1 using network-interface"
+        enabled: True
+        loopback_mode: False
+        mtu: None
+        type: None
+      hold_time:
+        config:
+          up: 0
+          down: 0
+      subinterfaces:
+        - config:
+            index: 0
+            description: "configure sub-interface using network-interface"
+            enabled: True
+
+  - interface:
+      config:
+        name: "ge-0/0/2"
+        description: "configure interface-1 using network-interface"
+        enabled: True
+        loopback_mode: False
+        mtu: None
+        type: None
+      hold_time:
+        config:
+          up: 0
+          down: 0
+      subinterfaces:
+        - config:
+            index: 0
+            description: "configure sub-interface using network-interface"
+            enabled: True

@@ -1,0 +1,6 @@
+---
+- name: convert json/yaml configuration in xml format
+  config_xml:
+    xpath_map: "{{ xpath_map }}"
+    config: "{{ input_configuration.config }}"
+  register: candidate_configuration

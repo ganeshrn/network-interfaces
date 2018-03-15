@@ -1,0 +1,6 @@
+---
+- name: retrieve the current active (running) configuration
+  get_config:
+    source: running
+    filter: "{{ config_filter | default(omit) }}"
+  register: running_configuration

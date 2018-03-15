@@ -1,0 +1,20 @@
+---
+- name: validate the variant variable
+  fail:
+    msg: "missing required fact: yang_variant"
+  when: yang_variant is undefined
+
+- name: validate the module variable
+  fail:
+    msg: "missing required fact: module"
+  when: module is undefined
+
+- name: validate the module variable
+  fail:
+    msg: "missing required fact: config_file"
+  when: config_file is undefined
+
+- name: parse and validate input config
+  import_role:
+    name: network-config
+    tasks_from: validate
