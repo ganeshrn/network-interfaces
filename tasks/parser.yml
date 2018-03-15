@@ -19,6 +19,11 @@
     msg: "missing required fact: source_dirs"
   when: source_dirs is undefined
 
+- name: validate the configuration variable
+  fail:
+    msg: "missing required fact: configuration"
+  when: configuration is undefined
+
 - name: render the device configuration in native cli format
   import_role:
     name: network-config
