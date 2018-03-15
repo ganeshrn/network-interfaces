@@ -21,11 +21,12 @@ None
 The following are the available tasks provided by this role for use in
 playbooks.
 
-* validate_input [[source]](tasks/validate_input.yaml) [[docs]](docs/validate_input.md)
-* parser [[source]](tasks/parser.yaml) [[docs]](docs/parser.md)
-* get_config [[source]](tasks/get_config.yaml) [[docs]](docs/get_config.md)
-* get_config_diff [[source]](tasks/get_config_diff.yaml) [[docs]](docs/get_config_diff.md)
-* edit_config [[source]](tasks/edit_config.yaml) [[docs]](docs/edit_config.md)
+* validate_input [[source]](tasks/validate_input.yml) [[docs]](docs/validate_input.md)
+* parser [[source]](tasks/parser.yml) [[docs]](docs/parser.md)
+* get_config [[source]](tasks/get_config.yml) [[docs]](docs/get_config.md)
+* get_config_diff [[source]](tasks/get_config_diff.yml) [[docs]](docs/get_config_diff.md)
+* edit_config [[source]](tasks/edit_config.yml) [[docs]](docs/edit_config.md)
+* edit_config [[source]](tasks/main.yml) [[docs]](docs/main.md)
 
 ## Role Variables
 The following role variables are defined by this role.
@@ -65,7 +66,7 @@ The default value is ```{{ playbook_dir }}/templates/{{ yang_variant }}/{{ ansib
 ### xpath_map
 This role variable is used to determine the path to the location of xpath map file. 
 
-The default value is ```{{ playbook_dir }}/files/map/{{ yang_variant }}/{{ ansible_network_os }}.yml.cfg```
+The default value is ```{{ playbook_dir }}/files/map/{{ yang_variant }}/{{ ansible_network_os }}.yml```
 
 ## Modules
 The following is a list of modules that are provided by this role.
