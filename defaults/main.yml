@@ -1,9 +1,11 @@
 ---
 # defaults file for network-interfaces
 
-# default location to find spec files
-module:
-  interfaces
+# default module name
+module: interfaces
+
+# default yang variant name
+yang_variant: openconfig
 
 # default location to find configuration files
 config_file:

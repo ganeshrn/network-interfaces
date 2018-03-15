@@ -36,13 +36,6 @@ Configure the network os value for the network device.  This role variable is
 used to map the role actions to device specific provider implementations.
 Typically this value should be set in the playbook inventory for the host.  
 
-### ansible_connection
-Configures the path to be used to store configuration backups.  If the path
-specified by this role variable does not exist, the role will automatically
-attempt to create the directory.  
-
-The default value is ```None```
-
 ### module
 The name of the modules which is same as the yang model suffix name.
 The default value is ```interfaces```

@@ -42,6 +42,16 @@
     msg: "missing required fact: config_file"
   when: config_file is undefined
 
+- name: check for required fact module
+  fail:
+    msg: "missing required fact: module"
+  when: module is undefined
+
+- name: check for required fact yang_variant
+  fail:
+    msg: "missing required fact: yang_variant"
+  when: yang_variant is undefined
+
 - name: run config validate task
   include_tasks: validate_input.yaml
 
